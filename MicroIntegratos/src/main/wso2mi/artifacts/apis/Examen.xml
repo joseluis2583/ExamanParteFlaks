@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/examen" name="Examen" xmlns="http://ws.apache.org/ns/synapse">
+	<resource methods="POST" uri-template="/age">
+		<inSequence>
+			<log level="full"/>
+            <call>
+				<endpoint key="person"/>
+			</call>
+			<property name="Age" scope="default" type="STRING" expression="json-eval($.age)"/>
+			<log level="full"/>
+			<class name="com.example.SampleMediator">
+			</class>			
+			<call>
+				<endpoint key="AgePoint"/> 
+			</call>
+			<log category="INFO" level="full"/>
+			<payloadFactory media-type="json">
+				<format>
+					{
+						"message":$1,
+						"age":$2,
+						"bisiesto":$3
+					}
+				</format>	
+				<args>
+					<arg evaluator="xml" expression="//root/message"/> 
+					<arg evaluator="xml" expression="//root/age"/>
+					<arg evaluator="xml" expression="//root/bisiesto"/>
+				</args>
+			</payloadFactory>	
+			<respond/>
+		</inSequence>
+		<faultSequence>
+		</faultSequence>
+	</resource>
+</api>
