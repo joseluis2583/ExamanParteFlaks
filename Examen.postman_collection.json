@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "88787618-8d2c-4f78-8ba8-85f3bcdda96f",
+		"name": "Examen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36858398"
+	},
+	"item": [
+		{
+			"name": "Micro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"jose\",\n    \"secondName\":\"luis\",\n    \"lastName\":\"velazquez\",\n    \"age\":25,\n    \"maritalStatus\":\"soltero\",\n    \"birthdate\":\"2000/02/16\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/examen",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"examen"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Micro validacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"jose\",\n    \"secondName\":null,\n    \"lastName\":\"velazquez\",\n    \"maritalStatus\":\"soltero\",\n    \"birthdate\":\"1995/02/16\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/examen/age",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"examen",
+						"age"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
